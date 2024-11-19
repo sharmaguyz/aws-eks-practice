@@ -47,8 +47,20 @@ https://repost.aws/knowledge-center/eks-vpc-subnet-discovery
 
 https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/#subnets
 
+IAM Policy download link - https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/docs/install/iam_policy.json
+
+IAM policy create command - 
+
+aws iam create-policy \
+    --policy-name AWSLoadBalancerControllerIAMPolicy \
+    --policy-document file://iam_policy_latest.json
 
 
+Make a note of Policy ARN
+Make a note of Policy ARN as we are going to use that in next step when creating IAM Role.
+# Policy ARN 
+Policy ARN:  arn:aws:iam::046529161809:policy/AWSLoadBalancerControllerIAMPolicy
+    
 eksctl create iamserviceaccount \
   --cluster=eks-demo-cluster \
   --namespace=kube-system \
