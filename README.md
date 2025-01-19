@@ -102,7 +102,8 @@ kubernetes.io/cluster/${cluster-name}
 ===========
 
 
-
+note - if ingress class is not defined as is-default class: true
+then in ingress resource we need to define the spec.ingressclassname in ingress resource.
 
 
 
