@@ -89,8 +89,8 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set alb.ingress.kubernetes.io/subnets={"project-subnet-public1-us-east-1a”} \
   --set alb.ingress.kubernetes.io/subnets={”project-subnet-public2-us-east-1b"} \
   --set tags.kubernetes.io/cluster=eks-demo-cluster \
-  --set tags.kubernetes.io/role/elb=1 \
-  --set tags.kubernetes.io/role/internal-elb=1
+  --set tags.kubernetes.io/role/elb=1 \        #This tag is applied to AWS resources to designate them as public-facing Elastic Load Balancers (ELBs).
+  --set tags.kubernetes.io/role/internal-elb=1  # This tag is applied to AWS resources to designate them as private, internal-facing Elastic Load Balancers (ELBs).
 
 
 
@@ -196,8 +196,8 @@ kind: Ingress
 metadata:
   name: ingress-namedbasedvhost-demo
   annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: namedbasedvhost-ingress
-    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: namedbasedvhost-ingress  # alb-ingress-lb-name
+    alb.ingress.kubernetes.io/scheme: internet-facing                       # internet facing in public subnet
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
