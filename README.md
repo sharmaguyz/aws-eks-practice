@@ -115,8 +115,8 @@ metadata:
   name: ingress-namedbasedvhost-demo1
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: namedbasedvhost-ingress.    #load-balancer name is common
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
+    alb.ingress.kubernetes.io/scheme: internet-facing                        #ingress core setting
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP                     # health check setting
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
