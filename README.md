@@ -124,8 +124,8 @@ metadata:
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'   
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:180789647333:certificate/d86de939-8ffd-410f-adce-0ce1f5be6e0d
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:180789647333:certificate/d86de939-8ffd-410f-adce-0ce1f5be6e0d  # certificate created in acm
+    alb.ingress.kubernetes.io/ssl-redirect: '443'  # redirect from http to https
     external-dns.alpha.kubernetes.io/hostname: default101.stacksimplify.com 
 spec:
   ingressClassName: my-aws-ingress-class
